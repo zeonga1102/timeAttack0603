@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="{% url 'home' %}" method="post">
+    {% csrf_token %}
+    {% for category in categories %}
+        <p>
+            <label>
+                <input type="checkbox" name="category" value="{{ category.name }}">{{ category.name }}
+            </label>
+        </p>
+    {% endfor %}
+    <button type="submit">OK</button>
+
+    {% for drink in drinks %}
+        <h3>{{ drink.title }}</h3>
+    {% endfor %}
+</form>
+</body>
+</html>
